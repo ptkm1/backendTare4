@@ -30,7 +30,7 @@
     - Deletar metas
 
 -------------------
-**O que já foi funciona:**
+**O que já funciona:**
 
 - Cadastro de usuário no banco (LOGIN);
 - Retorno de ID criptografado (LOGIN);
