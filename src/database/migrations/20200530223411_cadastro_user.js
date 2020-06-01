@@ -3,7 +3,7 @@ exports.up = function(knex) {
         table.string('id').primary();
         table.string('nome').notNullable();
         table.string('email').unique().notNullable();
-        table.integer('senha').notNullable();
+        table.text('senha').notNullable();
         table.integer('cpfcnpj').unique().notNullable();
         table.string('cidade');
         table.string('uf', 2);

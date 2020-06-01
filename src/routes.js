@@ -36,15 +36,24 @@ routes.post('/usuario', async (req, res) => {
             }else{
                 res.json({erro: "não foi possivel te cadastrar, tente novamente."})
             }
-    }
-
-
- //-> **ROTAS PÓS AUTENTICAÇÃO DO USUÁRIO** <-\\
-
- routes.post('/auth/index')
-
-    
+    }   
 });
+
+
+routes.post('/auth', async(req,res) => {
+
+    const { email, senha } = req.body;
+
+
+        const usuario = await conectarComDB('usuarios').where('email', email).andWhere('senha',senha).select('nome','id').first()
+        
+        if(!usuario){
+            return res.status(400).json({erro: "não foi encontrada a usuario."})
+        }
+
+        return res.json(usuario)
+
+ });
 
 
 module.exports = routes;
